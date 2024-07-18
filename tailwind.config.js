@@ -23,7 +23,7 @@ export default {
           secondary: "#0151c8",
         },
       },
-      main: "#d7fd63",
+      main: "#0645ff",
     },
     extend: {},
   },
