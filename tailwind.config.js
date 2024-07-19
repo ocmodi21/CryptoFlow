@@ -5,12 +5,12 @@ export default {
     colors: {
       dark: {
         bgcolor: {
-          primary: "#1d1d1d",
-          secondary: "#333333",
+          primary: "#1e1d47",
+          secondary: "#0f0e20",
         },
         font: {
           primary: "#e4e2e3",
-          secondary: "#818285",
+          secondary: "#b0b2be",
         },
       },
       light: {
@@ -23,7 +23,7 @@ export default {
           secondary: "#0151c8",
         },
       },
-      main: "#0645ff",
+      main: "#504adf",
     },
     extend: {},
   },
