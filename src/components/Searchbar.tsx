@@ -10,7 +10,7 @@ const Searchbar = ({ searchText, setSearchText }: SearchTextType) => {
       placeholder="Search"
       value={searchText}
       onChange={(e) => setSearchText(e.target.value)}
-      className="flex w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary !outline-none rounded-md px-3 py-2 text-light-font-primary dark:text-dark-font-primary"
+      className="flex w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary !outline-none rounded-md px-4 py-2 text-light-font-primary dark:text-dark-font-primary"
     />
   );
 };

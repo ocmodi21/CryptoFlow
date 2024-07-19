@@ -9,6 +9,7 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Watchlist from "./pages/Watchlist";
 import TopGainerCoins from "./pages/TopGainerCoins";
+import TopLoserCoins from "./pages/TopLoserCoins";
 import Explore from "./pages/Explore";
 
 import "./index.css";
@@ -39,9 +40,10 @@ const App = () => {
         <Route path="/" element={<Sidebar />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="watchlist" element={<Watchlist />} />
-          <Route path="topcoins" element={<TopGainerCoins />} />
           <Route path="explore" element={<Explore />} />
+          <Route path="watchlist" element={<Watchlist />} />
+          <Route path="topgainer" element={<TopGainerCoins />} />
+          <Route path="toploser" element={<TopLoserCoins />} />
         </Route>
       </Routes>
     </>
