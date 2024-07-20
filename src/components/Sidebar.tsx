@@ -3,6 +3,8 @@ import { sidebarData } from "../utils/sidebarData";
 import WatchList from "./WatchList";
 import TopGainers from "./TopGainers";
 import TopLosers from "./TopLosers";
+import { useQuery } from "react-query";
+import axios from "axios";
 
 interface SidebarTitleType {
   id: number;
@@ -12,6 +14,23 @@ interface SidebarTitleType {
 }
 
 const Sidebar = () => {
+  const { data } = useQuery({
+    queryKey: [""],
+    queryFn: () => fetchData("markets", "usd"),
+    // staleTime: 45 * 1000,
+  });
+
+  const fetchData = (endpoint: string, currency: string) => {
+    return axios.get(
+      `${import.meta.env.VITE_BASE_URL}/${endpoint}?x_cg_demo_api_key=${
+        import.meta.env.VITE_API_KEY
+      }&&vs_currency=${currency}`
+    );
+  };
+
+  if (data) {
+    // console.log(data);
+  }
   return (
     <div className="fixed flex flex-row w-screen h-screen bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary mt-16">
       <div className="hidden lg:flex flex-col lg:w-72 py-5 pl-10 pr-4 gap-y-4">
@@ -34,7 +53,7 @@ const Sidebar = () => {
       </div>
       <div className="h-screen w-screen px-5 md:px-8 lg:pl-3 py-5 lg:pr-10 bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary overflow-y-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-          <div className="lg:col-span-2">
+          <div className="h-full lg:col-span-2 overflow-y-auto">
             <Outlet />
           </div>
           <div>

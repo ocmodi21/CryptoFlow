@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 //components
 import Navbar from "./components/Navbar";
@@ -13,6 +14,8 @@ import TopLoserCoins from "./pages/TopLoserCoins";
 import Explore from "./pages/Explore";
 
 import "./index.css";
+
+const queryClient = new QueryClient();
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -34,7 +37,7 @@ const App = () => {
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Sidebar />}>
@@ -46,7 +49,7 @@ const App = () => {
           <Route path="toploser" element={<TopLoserCoins />} />
         </Route>
       </Routes>
-    </>
+    </QueryClientProvider>
   );
 };
 
