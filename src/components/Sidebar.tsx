@@ -29,7 +29,7 @@ const Sidebar = () => {
           </NavLink>
         ))}
       </div>
-      <div className="w-screen px-5 md:px-8 lg:pl-3 py-5 lg:pr-10 bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary">
+      <div className="h-screen w-screen px-5 md:px-8 lg:pl-3 py-5 lg:pr-10 bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary overflow-y-auto">
         <Outlet />
       </div>
     </div>

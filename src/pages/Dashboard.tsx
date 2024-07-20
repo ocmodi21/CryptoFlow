@@ -3,22 +3,23 @@ import Searchbar from "../components/Searchbar";
 import WatchList from "../components/WatchList";
 import TopGainers from "../components/TopGainers";
 import TopLosers from "../components/TopLosers";
+import CoinDetailsTable from "../components/CoinDetailsTable";
 
 const Dashboard = () => {
   const [searchText, setSearchText] = useState("");
   return (
-    <>
+    <div className="">
       <div className="flex lg:hidden w-full mb-3">
         <Searchbar searchText={searchText} setSearchText={setSearchText} />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
         <div className="lg:col-span-2">
-          <div className="grid grid-rows-2 grid-cols-1 gap-3">
+          <div className="flex flex-col gap-3">
             <div className="bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md">
               01
             </div>
-            <div className="bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md">
-              02
+            <div className="bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md px-4 py-3">
+              <CoinDetailsTable />
             </div>
           </div>
         </div>
@@ -39,7 +40,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
