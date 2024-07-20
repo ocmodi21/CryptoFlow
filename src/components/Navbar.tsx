@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import { FiSun } from "react-icons/fi";
 import { HiMiniMoon } from "react-icons/hi2";
 import IMAGES from "../assets";
-import Searchbar from "./Searchbar";
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
-  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -28,9 +26,6 @@ const Navbar = () => {
         CryptoFlow
       </span>
       <div className="flex flex-row gap-x-4 items-center">
-        <div className="hidden md:flex">
-          <Searchbar searchText={searchText} setSearchText={setSearchText} />
-        </div>
         {isDark ? (
           <FiSun
             size={20}
