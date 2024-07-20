@@ -1,5 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { sidebarData } from "../utils/sidebarData";
+import WatchList from "./WatchList";
+import TopGainers from "./TopGainers";
+import TopLosers from "./TopLosers";
 
 interface SidebarTitleType {
   id: number;
@@ -30,7 +33,24 @@ const Sidebar = () => {
         ))}
       </div>
       <div className="h-screen w-screen px-5 md:px-8 lg:pl-3 py-5 lg:pr-10 bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary overflow-y-auto">
-        <Outlet />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+          <div className="lg:col-span-2">
+            <Outlet />
+          </div>
+          <div>
+            <div className="grid grid-rows-3 grid-cols-1 gap-y-3">
+              <div className="flex w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md">
+                <WatchList />
+              </div>
+              <div className="flex w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md">
+                <TopGainers />
+              </div>
+              <div className="flex w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md">
+                <TopLosers />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
