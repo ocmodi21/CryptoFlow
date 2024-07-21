@@ -39,7 +39,7 @@ const Sidebar = () => {
             <Outlet />
           </div>
 
-          <div className="mb-16 lg:mb-0">
+          <div className="lg:h-[calc(100vh-6rem)] mb-16 lg:mb-0 overflow-y-auto">
             <div className="hidden lg:flex w-full mb-3">
               <Searchbar
                 searchText={searchText}
