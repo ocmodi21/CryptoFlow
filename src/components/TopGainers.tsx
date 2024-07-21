@@ -8,7 +8,7 @@ const TopGainers = () => {
         <span className="text-light-font-primary dark:text-dark-font-primary font-medium">
           Top Gainers
         </span>
-        <Link to={"/watchlist"}>
+        <Link to={"/topgainers"}>
           <span className="text-main text-sm font-semibold">
             View more coins
           </span>

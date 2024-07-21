@@ -1,13 +1,9 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { sidebarData } from "../utils/sidebarData";
-import WatchList from "./WatchList";
 import TopGainers from "./TopGainers";
 import TopLosers from "./TopLosers";
 import { useState } from "react";
 import Searchbar from "./Searchbar";
-// import { useQuery } from "react-query";
-// import axios from "axios";
-
 interface SidebarTitleType {
   id: number;
   title: string;
@@ -16,23 +12,6 @@ interface SidebarTitleType {
 }
 
 const Sidebar = () => {
-  // const { data } = useQuery({
-  //   queryKey: [""],
-  //   queryFn: () => fetchData("markets", "usd"),
-  //   staleTime: 45 * 1000,
-  // });
-
-  // const fetchData = (endpoint: string, currency: string) => {
-  //   return axios.get(
-  //     `${import.meta.env.VITE_BASE_URL}/${endpoint}?x_cg_demo_api_key=${
-  //       import.meta.env.VITE_API_KEY
-  //     }&&vs_currency=${currency}`
-  //   );
-  // };
-
-  // if (data) {
-  //   console.log(data);
-  // }
   const [searchText, setSearchText] = useState("");
   return (
     <div className="fixed flex flex-row w-screen h-screen bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary mt-16">
@@ -67,10 +46,7 @@ const Sidebar = () => {
                 setSearchText={setSearchText}
               />
             </div>
-            <div className="grid grid-rows-3 grid-cols-1 gap-y-3">
-              <div className="flex w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md">
-                <WatchList />
-              </div>
+            <div className="grid grid-rows-2 grid-cols-1 gap-y-3">
               <div className="flex w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md">
                 <TopGainers />
               </div>

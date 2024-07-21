@@ -1,7 +1,6 @@
 import { IoGrid } from "react-icons/io5";
 import { TfiStatsUp } from "react-icons/tfi";
 import { TfiStatsDown } from "react-icons/tfi";
-import { MdOutlineWatchLater } from "react-icons/md";
 import { TbGps } from "react-icons/tb";
 
 export const sidebarData = [
@@ -19,20 +18,14 @@ export const sidebarData = [
   },
   {
     id: 3,
-    title: "WatchList",
-    icon: MdOutlineWatchLater,
-    link: "/watchlist",
+    title: "Top Gainers",
+    icon: TfiStatsUp,
+    link: "/topgainers",
   },
   {
     id: 4,
-    title: "Top Gainers",
-    icon: TfiStatsUp,
-    link: "/topgainer",
-  },
-  {
-    id: 5,
     title: "Top Losers",
     icon: TfiStatsDown,
-    link: "/toploser",
+    link: "/toplosers",
   },
 ];

@@ -10,7 +10,6 @@ import Sidebar from "./components/Sidebar";
 
 //pages
 import Dashboard from "./pages/Dashboard";
-import Watchlist from "./pages/Watchlist";
 import TopGainerCoins from "./pages/TopGainerCoins";
 import TopLoserCoins from "./pages/TopLoserCoins";
 import Explore from "./pages/Explore";
@@ -92,9 +91,8 @@ const App = () => {
           <Route path="dashboard/:coin" element={<CoinDetails />} />
           <Route path="explore" element={<Explore />} />
           <Route path="explore/:coin" element={<CoinDetails />} />
-          <Route path="watchlist" element={<Watchlist />} />
-          <Route path="topgainer" element={<TopGainerCoins />} />
-          <Route path="toploser" element={<TopLoserCoins />} />
+          <Route path="topgainers" element={<TopGainerCoins />} />
+          <Route path="toplosers" element={<TopLoserCoins />} />
         </Route>
       </Routes>
     </>

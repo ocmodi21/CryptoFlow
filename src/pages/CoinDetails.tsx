@@ -59,7 +59,7 @@ const CoinDetails = () => {
           </span>
         </div>
       </div>
-      <div className="h-96 w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md pr-4 py-5">
+      <div className="h-96 w-full bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md pr-4 py-5 mt-3">
         <CoinDataGraph />
       </div>
     </div>
