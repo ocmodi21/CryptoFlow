@@ -47,9 +47,13 @@ const App = () => {
 
   const fetchData = async (endpoint: string, currency: string) => {
     const data = await axios.get(
-      `${import.meta.env.VITE_BASE_URL}/${endpoint}?x_cg_demo_api_key=${
-        import.meta.env.VITE_API_KEY
-      }&&vs_currency=${currency}`
+      `${import.meta.env.VITE_BASE_URL}/${endpoint}`,
+      {
+        params: {
+          x_cg_demo_api_key: import.meta.env.VITE_API_KEY,
+          vs_currency: currency,
+        },
+      }
     );
 
     const res = await data.data;

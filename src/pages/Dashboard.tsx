@@ -23,7 +23,7 @@ const Dashboard = () => {
             <span className="text-lg text-light-font-primary dark:text-dark-font-primary font-medium">
               Trending Market
             </span>
-            <Link to={"/watchlist"}>
+            <Link to={"/explore"}>
               <span className="text-main text-sm font-semibold">
                 View more coins
               </span>
