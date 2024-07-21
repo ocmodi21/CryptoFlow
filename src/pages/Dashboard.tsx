@@ -15,7 +15,7 @@ const Dashboard = () => {
         <div className="flex flex-col mb-4 bg-light-bgcolor-primary dark:bg-dark-bgcolor-primary rounded-md px-4 py-3">
           <div className="flex flex-row justify-between mb-3">
             <span className="text-lg text-light-font-primary dark:text-dark-font-primary font-medium">
-              Trending Market
+              Global Graph
             </span>
           </div>
           <div className="h-72 w-full">

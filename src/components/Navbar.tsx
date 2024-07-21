@@ -26,7 +26,10 @@ const Navbar = () => {
   return (
     <div className="fixed flex flex-row w-screen justify-between items-center py-4 px-5 md:px-8 lg:px-10 bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary">
       <Link to="/" className="flex flex-row gap-x-3">
-        <button onClick={() => setOpenMenu(!openMenu)}>
+        <button
+          onClick={() => setOpenMenu(!openMenu)}
+          className="flex lg:hidden"
+        >
           {openMenu ? (
             <FaTimes
               size={24}
