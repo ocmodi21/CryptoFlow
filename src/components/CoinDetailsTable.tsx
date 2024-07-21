@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { CoinDataType } from "../redux/slice/CoinDataSlice";
+import { Link } from "react-router-dom";
 
 const CoinDetailsTable = () => {
   const data = useSelector((state: any) => state.coin);
@@ -55,16 +56,22 @@ const CoinDetailsTable = () => {
                 `$${item.market_cap.toFixed(2)}`;
 
               return (
-                <tr key={item.market_cap_rank}>
-                  <td className="flex flex-row gap-x-4 text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap pr-6 py-3">
-                    <img
-                      src={item.image}
-                      alt="logo"
-                      width={28}
-                      height={28}
-                      className="rounded-full"
-                    />
-                    <span>{item.symbol}</span>
+                <tr key={item.id}>
+                  <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap pr-6 py-3">
+                    <Link
+                      to={`${item.id}`}
+                      state={{ item }}
+                      className="flex flex-row gap-x-4"
+                    >
+                      <img
+                        src={item.image}
+                        alt="logo"
+                        width={28}
+                        height={28}
+                        className="rounded-full"
+                      />
+                      <span>{item.symbol}</span>
+                    </Link>
                   </td>
                   <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
                     ${currPrice}

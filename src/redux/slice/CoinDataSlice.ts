@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface CoinDataType {
-  market_cap_rank: number;
+  id: string;
+  name: string;
   image: string;
   symbol: string;
   current_price: number;

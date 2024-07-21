@@ -17,6 +17,7 @@ import Explore from "./pages/Explore";
 
 import "./index.css";
 import { CoinDataType, setCoinData } from "./redux/slice/CoinDataSlice";
+import CoinDetails from "./pages/CoinDetails";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -62,7 +63,8 @@ const App = () => {
     if (res) {
       res.map((item: CoinDataType) => {
         const coin = {
-          market_cap_rank: item.market_cap_rank,
+          id: item.id,
+          name: item.name,
           image: item.image,
           symbol: item.symbol,
           current_price: item.current_price,
@@ -87,7 +89,9 @@ const App = () => {
         <Route path="/" element={<Sidebar />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dashboard/:coin" element={<CoinDetails />} />
           <Route path="explore" element={<Explore />} />
+          <Route path="explore/:coin" element={<CoinDetails />} />
           <Route path="watchlist" element={<Watchlist />} />
           <Route path="topgainer" element={<TopGainerCoins />} />
           <Route path="toploser" element={<TopLoserCoins />} />
