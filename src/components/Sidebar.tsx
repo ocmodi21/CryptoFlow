@@ -54,12 +54,13 @@ const Sidebar = () => {
           </NavLink>
         ))}
       </div>
-      <div className="h-screen w-screen px-5 md:px-8 lg:pl-3 py-5 lg:pr-10 bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary overflow-y-auto lg:overflow-hidden">
+      <div className="h-screen w-screen px-5 md:px-8 lg:pl-3 py-5 lg:pr-10 bg-light-bgcolor-secondary dark:bg-dark-bgcolor-secondary overflow-y-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-          <div className="h-full lg:h-screen lg:col-span-2 overflow-y-auto">
+          <div className="lg:h-[calc(100vh-6rem)] lg:col-span-2 overflow-y-auto">
             <Outlet />
           </div>
-          <div>
+
+          <div className="mb-16 lg:mb-0">
             <div className="hidden lg:flex w-full mb-3">
               <Searchbar
                 searchText={searchText}
