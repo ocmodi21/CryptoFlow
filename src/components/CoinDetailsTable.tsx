@@ -34,12 +34,16 @@ const CoinDetailsTable = () => {
         <tbody>
           {CoinData &&
             CoinData.map((item: CoinDataType) => {
+              const currPrice = item.current_price.toFixed(2);
+
               const HighPercentage = Math.abs(
                 100 - (item.high_24h * 100) / item.current_price
               ).toFixed(2);
               const LowPercentage = Math.abs(
                 100 - (item.low_24h * 100) / item.current_price
               ).toFixed(2);
+
+              const ath = item.ath.toFixed(2);
 
               const MarketCap =
                 (item.market_cap >= 1000000000 &&
@@ -63,7 +67,7 @@ const CoinDetailsTable = () => {
                     <span>{item.symbol}</span>
                   </td>
                   <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
-                    ${item.current_price}
+                    ${currPrice}
                   </td>
                   <td className="text-[#88D66C] text-left whitespace-nowrap px-6 py-3">
                     {HighPercentage}%
@@ -72,7 +76,7 @@ const CoinDetailsTable = () => {
                     {LowPercentage}%
                   </td>
                   <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
-                    ${item.ath}
+                    ${ath}
                   </td>
                   <td className="text-light-font-primary dark:text-dark-font-primary text-right whitespace-nowrap pl-6 py-3">
                     {MarketCap}
@@ -87,5 +91,3 @@ const CoinDetailsTable = () => {
 };
 
 export default CoinDetailsTable;
-
-//img, symbol, name, marketcap, currprice, hight24h, low 24h,

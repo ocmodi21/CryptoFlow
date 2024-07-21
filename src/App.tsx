@@ -62,7 +62,7 @@ const App = () => {
           image: item.image,
           symbol: item.symbol,
           current_price: item.current_price,
-          high_24h: item.low_24h,
+          high_24h: item.high_24h,
           low_24h: item.low_24h,
           ath: item.ath,
           market_cap: item.market_cap,
