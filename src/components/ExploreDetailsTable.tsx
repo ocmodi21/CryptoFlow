@@ -59,7 +59,7 @@ const ExploreDetailsTable = ({ CoinData }: ExploreDataType) => {
                   <tr key={item.id}>
                     <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap pr-6 py-3">
                       <Link
-                        to={`${item.id}`}
+                        to={`/explore/${item.id}`}
                         state={{ item }}
                         className="flex flex-row gap-x-4"
                       >
