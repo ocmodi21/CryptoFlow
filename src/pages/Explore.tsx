@@ -24,6 +24,7 @@ const Explore = () => {
       ["coins"],
       ({ pageParam = 1 }) => fetchData("markets", "usd", 20, pageParam),
       {
+        staleTime: 45 * 1000,
         getNextPageParam: (_lastPage, pages) => {
           if (pages.length < 14) {
             return pages.length + 1;

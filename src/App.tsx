@@ -42,7 +42,7 @@ const App = () => {
   const { data } = useQuery({
     queryKey: [""],
     queryFn: () => fetchData("markets", "usd"),
-    // staleTime: 45 * 1000,
+    staleTime: 45 * 1000,
   });
 
   const fetchData = async (endpoint: string, currency: string) => {
