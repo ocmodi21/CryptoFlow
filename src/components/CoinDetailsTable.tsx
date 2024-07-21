@@ -1,33 +1,10 @@
-import axios from "axios";
-import { useQuery } from "react-query";
-
-interface CoinDataType {
-  market_cap_rank: number;
-  image: string;
-  symbol: string;
-  current_price: number;
-  high_24h: number;
-  low_24h: number;
-  ath: number;
-  market_cap: number;
-}
+import { useSelector } from "react-redux";
+import { CoinDataType } from "../redux/slice/CoinDataSlice";
 
 const CoinDetailsTable = () => {
-  const { data } = useQuery({
-    queryKey: [""],
-    queryFn: () => fetchData("markets", "usd"),
-    // staleTime: 45 * 1000,
-  });
+  const data = useSelector((state: any) => state.coin);
 
-  const fetchData = (endpoint: string, currency: string) => {
-    return axios.get(
-      `${import.meta.env.VITE_BASE_URL}/${endpoint}?x_cg_demo_api_key=${
-        import.meta.env.VITE_API_KEY
-      }&&vs_currency=${currency}`
-    );
-  };
-
-  const CoinData = data?.data.slice(0, 10);
+  const CoinData = data.slice(0, 10);
 
   return (
     <div className="w-full overflow-x-auto">
