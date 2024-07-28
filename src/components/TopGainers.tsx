@@ -57,7 +57,7 @@ const TopGainers = () => {
                     <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
                       ${currPrice}
                     </td>
-                    <td className="text-[#88D66C] text-left whitespace-nowrap py-3">
+                    <td className="text-[#88D66C] text-right whitespace-nowrap py-3">
                       {HighPercentage}%
                     </td>
                   </tr>
