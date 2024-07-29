@@ -19,7 +19,7 @@ const Explore = () => {
     });
   };
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+  const { data, isLoading, isFetching, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery(
       ["coins"],
       ({ pageParam = 1 }) => fetchData("markets", "usd", 20, pageParam),
@@ -42,7 +42,7 @@ const Explore = () => {
           Explore more coin
         </span>
       </div>
-      <ExploreDetailsTable CoinData={data} />
+      <ExploreDetailsTable CoinData={data} isLoading={isLoading || isFetching} />
       {hasNextPage && (
         <div className="flex justify-end mt-2">
           <span

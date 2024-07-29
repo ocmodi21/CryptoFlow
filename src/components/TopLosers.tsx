@@ -43,7 +43,7 @@ const TopLosers = () => {
                   100 - (item.low_24h * 100) / item.current_price
                 ).toFixed(2);
                 return (
-                  <tr>
+                  <tr key={item.id}>
                     <td className="flex flex-row gap-x-4 text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap pr-6 py-3">
                       <img
                         src={item.image}

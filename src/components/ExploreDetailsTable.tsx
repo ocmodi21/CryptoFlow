@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { CoinDataType } from "../redux/slice/CoinDataSlice";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 interface ExploreDataType {
   CoinData: any;
+  isLoading: boolean;
 }
 
-const ExploreDetailsTable = ({ CoinData }: ExploreDataType) => {
+const ExploreDetailsTable = ({ CoinData, isLoading }: ExploreDataType) => {
   return (
     <div className="w-full overflow-x-auto">
       <table className="min-w-full">
@@ -56,42 +59,68 @@ const ExploreDetailsTable = ({ CoinData }: ExploreDataType) => {
                   `$${item.market_cap.toFixed(2)}`;
 
                 return (
-                  <tr key={item.id}>
-                    <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap pr-6 py-3">
-                      <Link
-                        to={`/explore/${item.id}`}
-                        state={{ item }}
-                        className="flex flex-row gap-x-4"
-                      >
-                        <img
-                          src={item.image}
-                          alt="logo"
-                          width={28}
-                          height={28}
-                          className="rounded-full"
-                        />
-                        <span>{item.symbol}</span>
-                      </Link>
-                    </td>
-                    <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
-                      ${currPrice}
-                    </td>
-                    <td className="text-[#88D66C] text-left whitespace-nowrap px-6 py-3">
-                      {HighPercentage}%
-                    </td>
-                    <td className="text-[#FF4C4C] text-left whitespace-nowrap px-6 py-3">
-                      {LowPercentage}%
-                    </td>
-                    <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
-                      ${ath}
-                    </td>
-                    <td className="text-light-font-primary dark:text-dark-font-primary text-right whitespace-nowrap pl-6 py-3">
-                      {MarketCap}
-                    </td>
-                  </tr>
+                  <>
+                    {!isLoading && (
+                      <tr key={item.id}>
+                        <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap pr-6 py-3">
+                          <Link
+                            to={`/explore/${item.id}`}
+                            state={{ item }}
+                            className="flex flex-row gap-x-4"
+                          >
+                            <img
+                              src={item.image}
+                              alt="logo"
+                              width={28}
+                              height={28}
+                              className="rounded-full"
+                            />
+                            <span>{item.symbol}</span>
+                          </Link>
+                        </td>
+                        <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
+                          ${currPrice}
+                        </td>
+                        <td className="text-[#88D66C] text-left whitespace-nowrap px-6 py-3">
+                          {HighPercentage}%
+                        </td>
+                        <td className="text-[#FF4C4C] text-left whitespace-nowrap px-6 py-3">
+                          {LowPercentage}%
+                        </td>
+                        <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
+                          ${ath}
+                        </td>
+                        <td className="text-light-font-primary dark:text-dark-font-primary text-right whitespace-nowrap pl-6 py-3">
+                          {MarketCap}
+                        </td>
+                      </tr>
+                    )}
+                  </>
                 );
               })
             )}
+          {isLoading && (
+            <tr>
+              <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap pr-6 py-3">
+                <Skeleton count={10} />
+              </td>
+              <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
+                <Skeleton count={10} />
+              </td>
+              <td className="text-[#88D66C] text-left whitespace-nowrap px-6 py-3">
+                <Skeleton count={10} />
+              </td>
+              <td className="text-[#FF4C4C] text-left whitespace-nowrap px-6 py-3">
+                <Skeleton count={10} />
+              </td>
+              <td className="text-light-font-primary dark:text-dark-font-primary text-left whitespace-nowrap px-6 py-3">
+                <Skeleton count={10} />
+              </td>
+              <td className="text-light-font-primary dark:text-dark-font-primary text-right whitespace-nowrap pl-6 py-3">
+                <Skeleton count={10} />
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
