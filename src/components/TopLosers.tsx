@@ -5,12 +5,12 @@ import { CoinDataType } from "../redux/slice/CoinDataSlice";
 const TopLosers = () => {
   const data = useSelector((state: any) => state.coin);
 
-  const CoinData = data.slice(data.length - 5, data.length);
+  const CoinData = data.slice(data.length - 5, data.length).reverse();
   return (
     <div className="flex flex-col w-full px-4 py-3">
       <div className="flex flex-row justify-between">
-        <span className="text-light-font-primary dark:text-dark-font-primary font-medium">
-          Top Losers
+        <span className="text-lg text-light-font-primary dark:text-dark-font-primary font-medium">
+          Top Losers (24h)
         </span>
         <Link to={"/toplosers"}>
           <span className="text-main text-sm font-semibold">
